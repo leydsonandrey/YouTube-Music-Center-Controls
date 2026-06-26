@@ -1,0 +1,35 @@
+ytmusic-player-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between;
+  padding: 0.5rem !important;
+}
+
+.middle-controls,
+#right-controls {
+  flex: 1 1 0 !important;
+}
+
+.middle-controls {
+  display: flex !important;
+  order: 1 !important;
+  justify-content: flex-start !important;
+}
+
+#left-controls {
+  display: flex !important;
+  order: 2 !important;
+  padding-left: 1rem !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+}
+
+#right-controls {
+  display: flex !important;
+  order: 3 !important;
+  justify-content: flex-end !important;
+}
+
+.time-info {
+  font-size: 1.5rem !important;
+}
