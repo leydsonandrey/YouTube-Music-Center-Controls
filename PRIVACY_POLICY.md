@@ -49,5 +49,4 @@ junto à extensão.
 
 ## Contato
 
-Dúvidas sobre esta política podem ser enviadas para:
-[seu e-mail ou link de contato aqui]
+Dúvidas sobre esta política podem ser enviadas para: contato@retangulo.org
