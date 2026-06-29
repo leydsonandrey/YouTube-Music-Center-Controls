@@ -2,7 +2,6 @@
   ytmusic-player-bar {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between;
     padding: 0.5rem !important;
   }
 
