@@ -15,42 +15,44 @@ function wait(selector) {
   });
 }
 
-function moveTimeInfo() {
-  const timeInfo = document.querySelector(".time-info");
-  const volume = document.querySelector(".volume");
-  if (!timeInfo || !volume) return;
+if (window.matchMedia("(min-width: 615px)").matches) {
+  function moveTimeInfo() {
+    const timeInfo = document.querySelector(".time-info");
+    const volume = document.querySelector(".volume");
+    if (!timeInfo || !volume) return;
 
-  if (volume.nextElementSibling === timeInfo) return;
+    if (volume.nextElementSibling === timeInfo) return;
 
-  volume.insertAdjacentElement("afterend", timeInfo);
-}
+    volume.insertAdjacentElement("afterend", timeInfo);
+  }
 
-function moveButtons() {
-  const leftControls = document.querySelector(
-    "#left-controls .left-controls-buttons",
-  );
-  const repeat = document.querySelector(".repeat");
-  const shuffle = document.querySelector(".shuffle");
-  const previous = document.querySelector(".previous-button");
+  function moveButtons() {
+    const leftControls = document.querySelector(
+      "#left-controls .left-controls-buttons",
+    );
+    const repeat = document.querySelector(".repeat");
+    const shuffle = document.querySelector(".shuffle");
+    const previous = document.querySelector(".previous-button");
 
-  if (!leftControls || !repeat || !shuffle || !previous) return;
-  if (leftControls.contains(repeat)) return;
+    if (!leftControls || !repeat || !shuffle || !previous) return;
+    if (leftControls.contains(repeat)) return;
 
-  leftControls.insertBefore(shuffle, previous);
-  leftControls.appendChild(repeat);
-}
+    leftControls.insertBefore(shuffle, previous);
+    leftControls.appendChild(repeat);
+  }
 
-function init() {
-  console.log("Extension loaded");
+  function init() {
+    console.log("Extension loaded");
 
-  const layoutObserver = new MutationObserver(() => {
+    const layoutObserver = new MutationObserver(() => {
+      moveTimeInfo();
+      moveButtons();
+    });
+    layoutObserver.observe(document.body, { childList: true, subtree: true });
+
     moveTimeInfo();
     moveButtons();
-  });
-  layoutObserver.observe(document.body, { childList: true, subtree: true });
-
-  moveTimeInfo();
-  moveButtons();
+  }
 }
 
 wait("ytmusic-player-bar").then(init);
