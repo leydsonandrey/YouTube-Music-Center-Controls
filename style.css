@@ -6,6 +6,10 @@
     padding-right: 1rem !important;
   }
 
+  #top-player-bar {
+    display: none !important;
+  }
+
   .middle-controls,
   #right-controls {
     flex: 1 1 0 !important;
